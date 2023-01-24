@@ -1,7 +1,7 @@
 # JWT-Auth-Node.js
 ## Introduction
 
-A Simple application to demonstrate JWT authorisation  made in Node.js using express. heavily commented so that anyone can follow along and make it their own.
+A Simple application to demonstrate JWT authorisation  made in Node.js using express and mongoose. heavily commented so that anyone can follow along and make it their own.
 
 
 
