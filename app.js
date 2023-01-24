@@ -37,7 +37,7 @@ app.get('/welcome',requireAuth, (req,res) => {
 
 })
 
-app.use(authRoutes)
+app.use(authRoutes)   // auth middle ware on all routes
 
 
 

@@ -7,10 +7,10 @@ const jwt = require('jsonwebtoken')
 //handle errors
 const handleErrors = (err) => {
   //message property comes up on all errors contains what kind of error
-  console.log(err.message, err.code)// code prperty doesnt exist on all erros but it does for the inque one.
+  console.log(err.message, err.code)// code prperty doesnt exist on all erros but it does for the inque one. 11000
   let errors = {email: '', password: ''} // what will be sent to user if error
-// high order function will be used to handle errors from both routes.
-if(err.code === 11000) {
+
+if(err.code === 11000) {  // error code mongoose returns if there is duplicate key
   errors.email = ' that email is already registered'
   return errors
 }
@@ -50,11 +50,10 @@ module.exports.login_get = (req, res) => {
 
 module.exports.signup_post = async (req, res) => {
     console.log(req.body)
-    const {email, password} = req.body  //destructing object
-    console.log(email, password)
+    const {email, password} = req.body  //get email & pass from req
     try {
-    const user = await User.create({email, password})
-    const token = createToken(user._id)
+    const user = await User.create({email, password})  // method creates document
+    const token = createToken(user._id) // id of user created
     res.cookie('b21', token, {httpOnly: true, maxAge: maxAge *1000}) //*1000 because cookie in miliseoncds
     res.status(201).json({user: user._id})
     }

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const { isEmail } = require('validator')
-//destructure isEmail from validator package.
+// isEmail from validator package.
 const bcrypt = require('bcrypt')
 
 
